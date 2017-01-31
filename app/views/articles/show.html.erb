@@ -10,11 +10,16 @@
     <p><%= image_tag @article.image.url %> </p>
   <% end %>
 
-<p><%= @article.body %></p>
+  <p><%= @article.body %></p>
+
+    <% if logged_in? %>
+
   <%= link_to "edit", edit_article_path(@article) %>
 
-<p><%= link_to "delete", article_path(@article), method: :delete,
+  <p><%= link_to "delete", article_path(@article), method: :delete,
   data: {confirm: "Really delete the article?"}%></p>
+
+  <% end %>
 
   <%= render partial: 'comments/form' %>
 
